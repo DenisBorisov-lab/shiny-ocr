@@ -10,20 +10,26 @@ import SwiftUI
 struct MainView: View {
   var body: some View {
     TabView {
-      AddImageView()
-        .tabItem {
-          Label("Image OCR", systemImage: "camera.metering.partial")
-        }
-      ProfileView()
-        .tabItem {
-          Label("Profile", systemImage: "person.fill")
-        }
+      NavigationView {
+        AddImageView()
+          .navigationTitle("Shiny OCR")
+      }
+      .tabItem {
+        Label("Image OCR", systemImage: "camera.metering.partial")
+      }
+      NavigationView {
+        HistoryView()
+          .navigationTitle("History")
+      }
+      .tabItem {
+        Label("History", systemImage: "text.book.closed")
+      }
     }
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    MainView()
-  }
-}
+//struct ContentView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    MainView()
+//  }
+//}

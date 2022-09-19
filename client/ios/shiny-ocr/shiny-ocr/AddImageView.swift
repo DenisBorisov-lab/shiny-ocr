@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct AddImageView: View {
-    var body: some View {
-        Text("Add Image Screen")
-    }
-}
+  @State private var settings = [
+    "OCR Language",
+    "Other Settings"
+  ]
+  @State private var inputSource = [
+    "Image From Camera",
+    "Image From Media"
+  ]
 
-struct AddImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddImageView()
+  var body: some View {
+    List {
+      Section {
+        ForEach(settings, id: \.self) { row in
+          Text(row)
+        }
+      }
+      Section {
+        ForEach(inputSource, id: \.self) { row in
+          Text(row)
+        }
+      }
     }
+  }
 }

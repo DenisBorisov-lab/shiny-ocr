@@ -8,7 +8,7 @@
 import Foundation
 
 struct Scan {
-  let id = UUID()
+  let id = UUID().uuidString
   let stingTitle: String
   let stringContent: String
 }
