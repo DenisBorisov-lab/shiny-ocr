@@ -10,13 +10,14 @@ import SwiftUI
 struct MainView: View {
   var body: some View {
     TabView {
-      VStack {
-        Image(systemName: "globe")
-          .imageScale(.large)
-          .foregroundColor(.accentColor)
-        Text("Hello, world!")
-      }
-      .padding()
+      AddImageView()
+        .tabItem {
+          Label("Image OCR", systemImage: "camera.metering.partial")
+        }
+      ProfileView()
+        .tabItem {
+          Label("Profile", systemImage: "person.fill")
+        }
     }
   }
 }

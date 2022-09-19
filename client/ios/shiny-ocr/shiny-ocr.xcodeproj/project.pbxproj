@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		78537A7D28D9047200A7A431 /* shiny_ocrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A7C28D9047200A7A431 /* shiny_ocrApp.swift */; };
-		78537A7F28D9047200A7A431 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A7E28D9047200A7A431 /* ContentView.swift */; };
+		78537A7F28D9047200A7A431 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A7E28D9047200A7A431 /* MainView.swift */; };
 		78537A8128D9047500A7A431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537A8028D9047500A7A431 /* Assets.xcassets */; };
 		78537A8428D9047500A7A431 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537A8328D9047500A7A431 /* Preview Assets.xcassets */; };
+		78537A8B28D9070800A7A431 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A8A28D9070700A7A431 /* ProfileView.swift */; };
+		78537A8D28D9078500A7A431 /* AddImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A8C28D9078500A7A431 /* AddImageView.swift */; };
+		78537A8F28D90A7C00A7A431 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537A8E28D90A7C00A7A431 /* Scan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78537A7928D9047200A7A431 /* shiny-ocr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shiny-ocr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78537A7C28D9047200A7A431 /* shiny_ocrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shiny_ocrApp.swift; sourceTree = "<group>"; };
-		78537A7E28D9047200A7A431 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		78537A7E28D9047200A7A431 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78537A8028D9047500A7A431 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78537A8328D9047500A7A431 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78537A8A28D9070700A7A431 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		78537A8C28D9078500A7A431 /* AddImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageView.swift; sourceTree = "<group>"; };
+		78537A8E28D90A7C00A7A431 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +58,12 @@
 			isa = PBXGroup;
 			children = (
 				78537A7C28D9047200A7A431 /* shiny_ocrApp.swift */,
-				78537A7E28D9047200A7A431 /* ContentView.swift */,
+				78537A7E28D9047200A7A431 /* MainView.swift */,
+				78537A8A28D9070700A7A431 /* ProfileView.swift */,
+				78537A8C28D9078500A7A431 /* AddImageView.swift */,
 				78537A8028D9047500A7A431 /* Assets.xcassets */,
 				78537A8228D9047500A7A431 /* Preview Content */,
+				78537A8E28D90A7C00A7A431 /* Scan.swift */,
 			);
 			path = "shiny-ocr";
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78537A7F28D9047200A7A431 /* ContentView.swift in Sources */,
+				78537A8D28D9078500A7A431 /* AddImageView.swift in Sources */,
+				78537A8F28D90A7C00A7A431 /* Scan.swift in Sources */,
+				78537A7F28D9047200A7A431 /* MainView.swift in Sources */,
+				78537A8B28D9070800A7A431 /* ProfileView.swift in Sources */,
 				78537A7D28D9047200A7A431 /* shiny_ocrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
