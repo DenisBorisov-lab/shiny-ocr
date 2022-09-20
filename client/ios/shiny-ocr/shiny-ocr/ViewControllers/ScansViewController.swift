@@ -10,7 +10,7 @@ import UIKit
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
 
-  private let mock = ["First", "Second", "eqweqwiqewuiqewiuooqeiwpieoquwioueqwoiupqweiuoeqwioupeqwioueqwiuoeqwiuqewiuoqewiuoqewiouqewiuoqewiuoeiuo"]
+  let scans = RecivedScan.mock()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +27,7 @@ class ScansViewController: UIViewController {
 
 extension ScansViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    mock.count
+    scans.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,7 +36,7 @@ extension ScansViewController: UITableViewDataSource {
       for: indexPath
     ) as? ScanTableViewCell else { return UITableViewCell() }
     
-    cell.configure(label: mock[indexPath.row], date: Date())
+    cell.configure(scan: scans[indexPath.row])
     cell.accessoryType = .disclosureIndicator
     return cell
   }

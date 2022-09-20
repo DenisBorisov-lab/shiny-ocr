@@ -27,8 +27,8 @@ class ScanTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  func configure(label: String, date: Date) {
-    dateLabel.text = String(describing: date)
-    titleLabel.text = label
+  func configure(scan: RecivedScan) {
+    titleLabel.text = scan.scanText
+    dateLabel.text = String(describing: scan.scanDate)
   }
 }

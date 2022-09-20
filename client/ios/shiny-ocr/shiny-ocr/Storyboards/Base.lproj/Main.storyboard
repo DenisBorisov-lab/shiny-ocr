@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shiny-->
+        <!--Scans-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ScansViewController" id="BYZ-38-t0r" customClass="ScansViewController" customModule="shiny_ocr" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="camera.metering.partial" catalog="system" id="hFj-X7-U6G"/>
-                    <navigationItem key="navigationItem" title="Shiny" id="LaW-nP-BzV"/>
+                    <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV"/>
                     <connections>
                         <outlet property="tableView" destination="zhF-va-Yln" id="MAL-pn-COV"/>
                     </connections>
