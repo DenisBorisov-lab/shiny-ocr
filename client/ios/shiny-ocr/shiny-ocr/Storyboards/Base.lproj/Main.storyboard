@@ -15,11 +15,26 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zhF-va-Yln">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zhF-va-Yln" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8hG-sw-OKW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zhF-va-Yln" secondAttribute="trailing" id="E5q-GP-Ktk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zhF-va-Yln" secondAttribute="bottom" id="bpS-X3-Fm6"/>
+                            <constraint firstItem="zhF-va-Yln" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h71-jQ-34S"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="camera.metering.partial" catalog="system" id="hFj-X7-U6G"/>
                     <navigationItem key="navigationItem" title="Shiny" id="LaW-nP-BzV"/>
+                    <connections>
+                        <outlet property="tableView" destination="zhF-va-Yln" id="MAL-pn-COV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
