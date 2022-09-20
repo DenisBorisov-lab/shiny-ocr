@@ -1,4 +1,4 @@
-package com.example.tesseract.server;
+package com.example.tesseract.services;
 
 import com.example.tesseract.models.Scan;
 import lombok.SneakyThrows;
