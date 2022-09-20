@@ -31,8 +31,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="camera.metering.partial" catalog="system" id="hFj-X7-U6G"/>
-                    <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV"/>
+                    <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV">
+                        <barButtonItem key="rightBarButtonItem" title="Русский" id="vx0-yd-B3G"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="languageMenuButton" destination="vx0-yd-B3G" id="0n4-kh-l5W"/>
                         <outlet property="tableView" destination="zhF-va-Yln" id="MAL-pn-COV"/>
                     </connections>
                 </viewController>

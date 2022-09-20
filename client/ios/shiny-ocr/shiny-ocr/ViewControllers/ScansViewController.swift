@@ -9,8 +9,10 @@ import UIKit
 
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
-
+  @IBOutlet var languageMenuButton: UIBarButtonItem!
+  
   private let scans = RecivedScan.mock()
+  private var currentLanguageOCR = "Русский"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,18 +23,21 @@ class ScansViewController: UIViewController {
       ScanTableViewCell.instanceFromNib(),
       forCellReuseIdentifier: ScanTableViewCell.id
     )
-
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Русский")
-    navigationItem.rightBarButtonItem?.menu = generateChangeLanguageMenu()
+    
+    languageMenuButton.menu = generateChangeLanguageMenu()
   }
 
   private func generateChangeLanguageMenu() -> UIMenu {
     var actions: [UIAction] = []
+    
+    // TODO: Сделать конфигурацию
     ["Руссикй", "English"].forEach { element in
       let action = UIAction(
         title: element,
-        state: element == "Руссикй" ? .on : .off,
-        handler: { _ in }
+        handler: { [weak self] _ in
+          self?.languageMenuButton.title = element
+          self?.currentLanguageOCR = element
+        }
       )
       actions.append(action)
     }
