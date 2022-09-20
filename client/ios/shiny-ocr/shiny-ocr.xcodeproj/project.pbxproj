@@ -10,6 +10,7 @@
 		F933FC3728D9B1AC007273A9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FC3628D9B1AB007273A9 /* ProfileViewController.swift */; };
 		F933FC3B28D9C40C007273A9 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FC3928D9C40C007273A9 /* ScanTableViewCell.swift */; };
 		F933FC3C28D9C40C007273A9 /* ScanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F933FC3A28D9C40C007273A9 /* ScanTableViewCell.xib */; };
+		F933FC4128D9CB30007273A9 /* RecivedScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FC4028D9CB30007273A9 /* RecivedScan.swift */; };
 		F97A29D728D999D200AF4D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A29D628D999D200AF4D9E /* AppDelegate.swift */; };
 		F97A29D928D999D200AF4D9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A29D828D999D200AF4D9E /* SceneDelegate.swift */; };
 		F97A29DB28D999D200AF4D9E /* ScansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97A29DA28D999D200AF4D9E /* ScansViewController.swift */; };
@@ -22,6 +23,7 @@
 		F933FC3628D9B1AB007273A9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F933FC3928D9C40C007273A9 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
 		F933FC3A28D9C40C007273A9 /* ScanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanTableViewCell.xib; sourceTree = "<group>"; };
+		F933FC4028D9CB30007273A9 /* RecivedScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecivedScan.swift; sourceTree = "<group>"; };
 		F97A29D328D999D200AF4D9E /* shiny-ocr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shiny-ocr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97A29D628D999D200AF4D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F97A29D828D999D200AF4D9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F933FC3F28D9CB21007273A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F933FC4028D9CB30007273A9 /* RecivedScan.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F97A29CA28D999D200AF4D9E = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 			children = (
 				F933FC3828D9C3EB007273A9 /* Views */,
 				F933FC3528D9B177007273A9 /* ViewControllers */,
+				F933FC3F28D9CB21007273A9 /* Models */,
 				F933FC3228D9B165007273A9 /* Storyboards */,
 				F933FC3428D9B172007273A9 /* Application */,
 				F933FC3328D9B16C007273A9 /* Sources */,
@@ -189,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F97A29DB28D999D200AF4D9E /* ScansViewController.swift in Sources */,
+				F933FC4128D9CB30007273A9 /* RecivedScan.swift in Sources */,
 				F97A29D728D999D200AF4D9E /* AppDelegate.swift in Sources */,
 				F933FC3B28D9C40C007273A9 /* ScanTableViewCell.swift in Sources */,
 				F933FC3728D9B1AC007273A9 /* ProfileViewController.swift in Sources */,
