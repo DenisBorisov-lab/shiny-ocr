@@ -20,9 +20,9 @@ public class ScanController {
         this.scanService = scanService;
     }
 
-    @MessageMapping("/scanner")
-    @SendTo("/server/scan")
-    public OutputScan send(Scan object) {
+    @MessageMapping("/ocr_scanner")
+    @SendTo("/topic/scanner")
+    public OutputScan scan(Scan object) {
         UUID userId = object.getUserId();
         String text = scanService.scan(object);
         return new OutputScan(userId, text);
