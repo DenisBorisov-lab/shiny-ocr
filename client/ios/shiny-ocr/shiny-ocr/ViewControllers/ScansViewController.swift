@@ -12,7 +12,7 @@ class ScansViewController: UIViewController {
   @IBOutlet var languageMenuButton: UIBarButtonItem!
   
   private let scans = RecivedScan.mock()
-  private var currentLanguageOCR = "Русский"
+  private var currentLanguageOCR: OCRLanguage = .rus
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,17 +31,22 @@ class ScansViewController: UIViewController {
     var actions: [UIAction] = []
     
     // TODO: Сделать конфигурацию
-    ["Руссикй", "English"].forEach { element in
+    OCRLanguage.allCases.forEach { element in
       let action = UIAction(
-        title: element,
+        title: element.introduction,
         handler: { [weak self] _ in
-          self?.languageMenuButton.title = element
-          self?.currentLanguageOCR = element
+          guard let self else { return }
+          self.languageMenuButton.title = element.introduction
+          self.currentLanguageOCR = element
         }
       )
       actions.append(action)
     }
     return UIMenu(title: "Язык Сканирования", children: actions)
+  }
+  
+  @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
+    
   }
 }
 

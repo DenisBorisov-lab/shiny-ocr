@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b8t-5R-SJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b8t-5R-SJ5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zhF-va-Yln">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -32,7 +33,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="camera.metering.partial" catalog="system" id="hFj-X7-U6G"/>
                     <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV">
-                        <barButtonItem key="rightBarButtonItem" title="Русский" id="vx0-yd-B3G"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="DiP-1D-82U">
+                                <connections>
+                                    <action selector="AddButtonPressed:" destination="BYZ-38-t0r" id="r1B-5b-pRN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Русский" id="vx0-yd-B3G"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="languageMenuButton" destination="vx0-yd-B3G" id="0n4-kh-l5W"/>
@@ -65,7 +73,7 @@
                 <navigationController id="q7Y-w4-WG9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="W8c-MK-kH0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="N6n-wd-qRY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -103,7 +111,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="RSE-Y9-c6A"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="57f-cs-uJR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -118,7 +126,7 @@
     </scenes>
     <resources>
         <image name="camera.metering.partial" catalog="system" width="128" height="93"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
