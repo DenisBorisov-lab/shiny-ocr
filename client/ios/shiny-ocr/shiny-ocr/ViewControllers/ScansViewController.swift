@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Photos
+import PhotosUI
 
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
@@ -46,9 +48,23 @@ class ScansViewController: UIViewController {
   }
   
   @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
+    showImagePickerController()
+  }
+  
+  private func showImagePickerController() {
+    var config = PHPickerConfiguration(photoLibrary: .shared())
+    config.filter = PHPickerFilter.images
+    let pickerVC = PHPickerViewController(configuration: config)
+    pickerVC.delegate = self
+    present(pickerVC, animated: true)
+  }
+  
+  private func sendImageForOCR(_ image: UIImage) {
     
   }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ScansViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,4 +83,29 @@ extension ScansViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - UITableViewDelegate
+
 extension ScansViewController: UITableViewDelegate {}
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension ScansViewController: PHPickerViewControllerDelegate {
+  func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+    picker.dismiss(animated: true)
+    results.first?.itemProvider.loadObject(ofClass: UIImage.self) { reading, error in
+      if let error = error {
+        print(error)
+        return
+      }
+
+      guard let image = reading as? UIImage else {
+        print("reading casting failed")
+        return
+      }
+
+      DispatchQueue.main.async {
+        self.sendImageForOCR(image)
+      }
+    }
+  }
+}
