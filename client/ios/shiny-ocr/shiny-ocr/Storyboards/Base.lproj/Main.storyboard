@@ -33,17 +33,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="camera.metering.partial" catalog="system" id="hFj-X7-U6G"/>
                     <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="DiP-1D-82U">
-                                <connections>
-                                    <action selector="AddButtonPressed:" destination="BYZ-38-t0r" id="r1B-5b-pRN"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Русский" id="vx0-yd-B3G"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DiP-1D-82U">
+                            <connections>
+                                <action selector="AddButtonPressed:" destination="BYZ-38-t0r" id="r1B-5b-pRN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="languageMenuButton" destination="vx0-yd-B3G" id="0n4-kh-l5W"/>
                         <outlet property="tableView" destination="zhF-va-Yln" id="MAL-pn-COV"/>
                     </connections>
                 </viewController>

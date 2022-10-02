@@ -11,7 +11,6 @@ import PhotosUI
 
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
-  @IBOutlet var languageMenuButton: UIBarButtonItem!
   
   private let scans = RecivedScan.mock()
   private var currentLanguageOCR: OCRLanguage = .rus
@@ -25,31 +24,75 @@ class ScansViewController: UIViewController {
       ScanTableViewCell.instanceFromNib(),
       forCellReuseIdentifier: ScanTableViewCell.id
     )
-    
-    languageMenuButton.menu = generateChangeLanguageMenu()
-    languageMenuButton.title = currentLanguageOCR.presentationValue
-  }
-
-  private func generateChangeLanguageMenu() -> UIMenu {
-    var actions: [UIAction] = []
-    
-    // TODO: Сделать конфигурацию
-    OCRLanguage.allCases.forEach { element in
-      let action = UIAction(
-        title: element.presentationValue,
-        handler: { [weak self] _ in
-          guard let self else { return }
-          self.languageMenuButton.title = element.presentationValue
-          self.currentLanguageOCR = element
-        }
-      )
-      actions.append(action)
-    }
-    return UIMenu(title: "Язык Сканирования", children: actions)
   }
   
   @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
-    showImagePickerController()
+    showImageSelectionAlert()
+  }
+  
+  private func generateChangeLanguageMenu() -> UIMenu {
+    let acitons = OCRLanguage.allCases.map { element in
+      UIAction(
+        title: element.presentationValue,
+        state: element == currentLanguageOCR ? .on : .off,
+        handler: { [weak self] _ in
+          guard let self else { return }
+          self.currentLanguageOCR = element
+        }
+      )
+    }
+    return UIMenu(title: "", children: acitons)
+  }
+  
+  private func showImageSelectionAlert() {
+    let alert = UIAlertController(
+      title: "",
+      message: nil,
+      preferredStyle: .actionSheet
+    )
+    alert.view.heightAnchor.constraint(equalToConstant: 220).isActive = true
+    
+    let cancel = UIAlertAction(title: "Отмена", style: .cancel)
+    alert.addAction(cancel)
+    
+    let imageFromLibrary = UIAlertAction(
+      title: "Из фотопленки",
+      style: .default
+    ) { _ in
+      self.showImagePickerController()
+    }
+    alert.addAction(imageFromLibrary)
+    
+    let imageFromCamera = UIAlertAction(
+      title: "Из камеры",
+      style: .default
+    ) { _ in
+      // open camera
+    }
+    alert.addAction(imageFromCamera)
+    
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.text = "Язык сканирования:"
+    
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitleColor(.systemBlue, for: .normal)
+    button.showsMenuAsPrimaryAction = true
+    button.changesSelectionAsPrimaryAction = true
+    button.menu = generateChangeLanguageMenu()
+    
+    alert.view.addSubview(label)
+    alert.view.addSubview(button)
+    
+    NSLayoutConstraint.activate([
+      label.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 10),
+      label.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16),
+      button.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+      button.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 5)
+    ])
+    
+    present(alert, animated: true)
   }
   
   private func showImagePickerController() {
@@ -61,7 +104,7 @@ class ScansViewController: UIViewController {
   }
   
   private func sendImageForOCR(_ image: UIImage) {
-    
+    // use service for image sending
   }
 }
 
