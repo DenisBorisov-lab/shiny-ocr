@@ -27,6 +27,7 @@ class ScansViewController: UIViewController {
     )
     
     languageMenuButton.menu = generateChangeLanguageMenu()
+    languageMenuButton.title = currentLanguageOCR.presentationValue
   }
 
   private func generateChangeLanguageMenu() -> UIMenu {
@@ -35,10 +36,10 @@ class ScansViewController: UIViewController {
     // TODO: Сделать конфигурацию
     OCRLanguage.allCases.forEach { element in
       let action = UIAction(
-        title: element.introduction,
+        title: element.presentationValue,
         handler: { [weak self] _ in
           guard let self else { return }
-          self.languageMenuButton.title = element.introduction
+          self.languageMenuButton.title = element.presentationValue
           self.currentLanguageOCR = element
         }
       )

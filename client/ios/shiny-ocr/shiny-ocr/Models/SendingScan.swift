@@ -19,7 +19,7 @@ struct SendingScan: Encodable {
 enum OCRLanguage: String, CaseIterable, Encodable {
   case rus, eng
   
-  var introduction: String {
+  var presentationValue: String {
     switch self {
     case .rus:
       return "Русский"
