@@ -9,7 +9,6 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 public class Scan {
-    private String language;
     @NonNull
     private String format;
     private byte[] image;

@@ -20,11 +20,10 @@ public class ScanService {
 
     @SneakyThrows
     public String scan(Scan object) {
-        String language = object.getLanguage();
         File image = converterService.fromByteToImage(object);
         Tesseract tesseract = new Tesseract();
         tesseract.setDatapath("src/main/resources");
-        tesseract.setLanguage(language);
+        tesseract.setLanguage("eng+rus+jpn+ita+deu+chi_sim+chi_tra+fra");
         tesseract.setPageSegMode(1);
         tesseract.setOcrEngineMode(1);
         return tesseract.doOCR(image);
