@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WebSocketProvider {
+protocol WebSocketProvider: AnyObject {
     var delegate: WebSocketDelegate? { get set }
     var isConnected: Bool { get }
     func connect()

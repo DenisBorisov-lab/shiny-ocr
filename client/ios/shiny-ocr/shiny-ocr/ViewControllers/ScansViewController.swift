@@ -27,6 +27,7 @@ class ScansViewController: UIViewController {
     )
     addScanButton.isEnabled = false
     scannerManager.delegate = self
+    scannerManager.connectToTesseractServer()
   }
 
   @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -71,9 +72,6 @@ class ScansViewController: UIViewController {
 
   private func sendImageForOCR(_ image: UIImage) {
     
-////    let receivedScan = RecivedScan(scanText: <#T##String#>, scanDate: Date())
-//    let sendingScan = SendingScan(format: <#T##String#>, image: <#T##Data#>, userId: <#T##UUID#>)
-//    scannerManager.scan(<#T##SendingScan#>)
   }
 }
 

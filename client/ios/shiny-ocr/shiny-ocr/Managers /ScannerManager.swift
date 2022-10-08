@@ -16,8 +16,9 @@ protocol ScannerManagerDelegate: AnyObject {
 class ScannerManager {
   private let webSocket: WebSocketProvider = NativeWebSocket(url: URL(string: "ws://localhost:8080/scanner-server")!)
   weak var delegate: ScannerManagerDelegate?
-    
-  init() {
+  
+  func connectToTesseractServer() {
+    webSocket.delegate = self
     webSocket.connect()
   }
     
@@ -28,15 +29,17 @@ class ScannerManager {
 
 extension ScannerManager: WebSocketDelegate {
   func webSocketDidConnect() {
+    print("Socket did connect")
     delegate?.unlockScanActions()
   }
     
   func webSocketDidDisconnect() {
+    print("Socket did disconnect")
     delegate?.lockScanActions()
   }
     
   func webSocket(didReceiveString string: String) {
-    print("WARN: web socket reveice string! Expected")
+    print("WARN: web socket reveice string! Expected type: Data")
   }
     
   func webSocket(didReceiveData data: Data) {
