@@ -20,9 +20,10 @@ public class ScanController {
         this.scanService = scanService;
     }
 
-    @MessageMapping("/ocr_scanner")
+    @MessageMapping("/scanner-server")
     @SendTo("/topic/scanner")
     public OutputScan scan(Scan object) {
+        System.out.println("был вызван метод контроллера!");
         UUID userId = object.getUserId();
         String text = scanService.scan(object);
         return new OutputScan(userId, text);
