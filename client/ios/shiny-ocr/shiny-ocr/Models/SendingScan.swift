@@ -7,24 +7,8 @@
 
 import Foundation
 
-// ws://192.168.1.2:8080/scanner-server
-
 struct SendingScan: Encodable {
-  let language: OCRLanguage
   let format: String
   let image: Data
   let userId: UUID
-}
-
-enum OCRLanguage: String, CaseIterable, Encodable {
-  case rus, eng
-  
-  var presentationValue: String {
-    switch self {
-    case .rus:
-      return "Русский"
-    case .eng:
-      return "Английский"
-    }
-  }
 }
