@@ -35,11 +35,12 @@
                     <navigationItem key="navigationItem" title="Scans" id="LaW-nP-BzV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DiP-1D-82U">
                             <connections>
-                                <action selector="AddButtonPressed:" destination="BYZ-38-t0r" id="r1B-5b-pRN"/>
+                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="QFD-ZU-HAF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addScanButton" destination="DiP-1D-82U" id="BMW-30-JZF"/>
                         <outlet property="tableView" destination="zhF-va-Yln" id="MAL-pn-COV"/>
                     </connections>
                 </viewController>

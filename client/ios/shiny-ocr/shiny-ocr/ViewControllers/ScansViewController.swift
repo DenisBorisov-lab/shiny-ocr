@@ -5,15 +5,16 @@
 //  Created by Igor Buzykin on 20.09.2022.
 //
 
-import UIKit
 import Photos
 import PhotosUI
+import UIKit
 
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var addScanButton: UIBarButtonItem!
   
   private let scans = RecivedScan.mock()
-  private var currentLanguageOCR: OCRLanguage = .rus
+  private let scannerManager = ScannerManager()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,77 +25,42 @@ class ScansViewController: UIViewController {
       ScanTableViewCell.instanceFromNib(),
       forCellReuseIdentifier: ScanTableViewCell.id
     )
+    addScanButton.isEnabled = false
+    scannerManager.delegate = self
   }
-  
-  @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
+
+  @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
     showImageSelectionAlert()
   }
-  
-  private func generateChangeLanguageMenu() -> UIMenu {
-    let acitons = OCRLanguage.allCases.map { element in
-      UIAction(
-        title: element.presentationValue,
-        state: element == currentLanguageOCR ? .on : .off,
-        handler: { [weak self] _ in
-          guard let self else { return }
-          self.currentLanguageOCR = element
-        }
-      )
-    }
-    return UIMenu(title: "", children: acitons)
-  }
-  
+
   private func showImageSelectionAlert() {
     let alert = UIAlertController(
-      title: "",
+      title: nil,
       message: nil,
       preferredStyle: .actionSheet
     )
-    alert.view.heightAnchor.constraint(equalToConstant: 220).isActive = true
-    
     let cancel = UIAlertAction(title: "Отмена", style: .cancel)
     alert.addAction(cancel)
-    
+
     let imageFromLibrary = UIAlertAction(
-      title: "Из фотопленки",
+      title: "Из Фотопленки",
       style: .default
     ) { _ in
       self.showImagePickerController()
     }
     alert.addAction(imageFromLibrary)
-    
+
     let imageFromCamera = UIAlertAction(
-      title: "Из камеры",
+      title: "Из Камеры",
       style: .default
     ) { _ in
       // open camera
     }
     alert.addAction(imageFromCamera)
-    
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.text = "Язык сканирования:"
-    
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitleColor(.systemBlue, for: .normal)
-    button.showsMenuAsPrimaryAction = true
-    button.changesSelectionAsPrimaryAction = true
-    button.menu = generateChangeLanguageMenu()
-    
-    alert.view.addSubview(label)
-    alert.view.addSubview(button)
-    
-    NSLayoutConstraint.activate([
-      label.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 10),
-      label.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16),
-      button.centerYAnchor.constraint(equalTo: label.centerYAnchor),
-      button.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 5)
-    ])
-    
+
     present(alert, animated: true)
   }
-  
+
   private func showImagePickerController() {
     var config = PHPickerConfiguration(photoLibrary: .shared())
     config.filter = PHPickerFilter.images
@@ -102,9 +68,12 @@ class ScansViewController: UIViewController {
     pickerVC.delegate = self
     present(pickerVC, animated: true)
   }
-  
+
   private func sendImageForOCR(_ image: UIImage) {
-    // use service for image sending
+    
+////    let receivedScan = RecivedScan(scanText: <#T##String#>, scanDate: Date())
+//    let sendingScan = SendingScan(format: <#T##String#>, image: <#T##Data#>, userId: <#T##UUID#>)
+//    scannerManager.scan(<#T##SendingScan#>)
   }
 }
 
@@ -151,5 +120,21 @@ extension ScansViewController: PHPickerViewControllerDelegate {
         self.sendImageForOCR(image)
       }
     }
+  }
+}
+
+// MARK: - ScannerManagerDelegate
+
+extension ScansViewController: ScannerManagerDelegate {
+  func scannerManager(_ manager: ScannerManager, didReceiveScan: RecivedScan) {
+    
+  }
+
+  func lockScanActions() {
+    addScanButton.isEnabled = false
+  }
+
+  func unlockScanActions() {
+    addScanButton.isEnabled = true
   }
 }
