@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34DC5931F1ADAE8ED1684593 /* Pods_shiny_ocr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FABF15798D120F0BCBEF0D /* Pods_shiny_ocr.framework */; };
 		F933FC3728D9B1AC007273A9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FC3628D9B1AB007273A9 /* ProfileViewController.swift */; };
 		F933FC3B28D9C40C007273A9 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933FC3928D9C40C007273A9 /* ScanTableViewCell.swift */; };
 		F933FC3C28D9C40C007273A9 /* ScanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F933FC3A28D9C40C007273A9 /* ScanTableViewCell.xib */; };
@@ -24,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		476CDB02AEF1259F5A8E87D0 /* Pods-shiny-ocr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiny-ocr.release.xcconfig"; path = "Target Support Files/Pods-shiny-ocr/Pods-shiny-ocr.release.xcconfig"; sourceTree = "<group>"; };
+		BBC724D35F46648152A2C142 /* Pods-shiny-ocr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiny-ocr.debug.xcconfig"; path = "Target Support Files/Pods-shiny-ocr/Pods-shiny-ocr.debug.xcconfig"; sourceTree = "<group>"; };
+		D9FABF15798D120F0BCBEF0D /* Pods_shiny_ocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiny_ocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F933FC3628D9B1AB007273A9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F933FC3928D9C40C007273A9 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
 		F933FC3A28D9C40C007273A9 /* ScanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanTableViewCell.xib; sourceTree = "<group>"; };
@@ -47,12 +51,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34DC5931F1ADAE8ED1684593 /* Pods_shiny_ocr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		671AEA97A3724DE16720C16C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9FABF15798D120F0BCBEF0D /* Pods_shiny_ocr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A9FAECD011E872D621880CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBC724D35F46648152A2C142 /* Pods-shiny-ocr.debug.xcconfig */,
+				476CDB02AEF1259F5A8E87D0 /* Pods-shiny-ocr.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F933FC3228D9B165007273A9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +135,8 @@
 			children = (
 				F97A29D528D999D200AF4D9E /* shiny-ocr */,
 				F97A29D428D999D200AF4D9E /* Products */,
+				9A9FAECD011E872D621880CF /* Pods */,
+				671AEA97A3724DE16720C16C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F97A29E728D999D300AF4D9E /* Build configuration list for PBXNativeTarget "shiny-ocr" */;
 			buildPhases = (
+				067BEF35742C0F61A8931C90 /* [CP] Check Pods Manifest.lock */,
 				F97A29CF28D999D200AF4D9E /* Sources */,
 				F97A29D028D999D200AF4D9E /* Frameworks */,
 				F97A29D128D999D200AF4D9E /* Resources */,
+				B0D0249B570468CBF59E66F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,6 +248,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		067BEF35742C0F61A8931C90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-shiny-ocr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0D0249B570468CBF59E66F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiny-ocr/Pods-shiny-ocr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiny-ocr/Pods-shiny-ocr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shiny-ocr/Pods-shiny-ocr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F97A29CF28D999D200AF4D9E /* Sources */ = {
@@ -378,6 +447,7 @@
 		};
 		F97A29E828D999D300AF4D9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBC724D35F46648152A2C142 /* Pods-shiny-ocr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,6 +480,7 @@
 		};
 		F97A29E928D999D300AF4D9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 476CDB02AEF1259F5A8E87D0 /* Pods-shiny-ocr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

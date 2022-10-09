@@ -1,0 +1,24 @@
+PODS:
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - SPIndicator (1.6.4)
+  - Starscream (3.1.1)
+
+DEPENDENCIES:
+  - Socket.IO-Client-Swift (~> 15.2.0)
+  - SPIndicator
+
+SPEC REPOS:
+  trunk:
+    - Socket.IO-Client-Swift
+    - SPIndicator
+    - Starscream
+
+SPEC CHECKSUMS:
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  SPIndicator: 93e0a4fb23de51294ac48e874c0f081a5e293e4f
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+
+PODFILE CHECKSUM: ce75139618562593622e3fc225626cf300626843
+
+COCOAPODS: 1.11.3
