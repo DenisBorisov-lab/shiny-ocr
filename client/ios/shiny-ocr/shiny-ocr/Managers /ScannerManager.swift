@@ -23,6 +23,7 @@ class ScannerManager {
   }
     
   func scan(_ scan: SendingScan) {
+    print("Sending: \(scan)")
     webSocket.send(Data())
   }
 }
@@ -43,7 +44,8 @@ extension ScannerManager: WebSocketDelegate {
   }
     
   func webSocket(didReceiveData data: Data) {
-    guard let receivedScan = try? JSONDecoder().decode(RecivedScan.self, from: data) else { return }
-    delegate?.scannerManager(self, didReceiveScan: receivedScan)
+    print(data)
+//    guard let receivedScan = try? JSONDecoder().decode(RecivedScan.self, from: data) else { return }
+//    delegate?.scannerManager(self, didReceiveScan: receivedScan)
   }
 }

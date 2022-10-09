@@ -71,7 +71,11 @@ class ScansViewController: UIViewController {
   }
 
   private func sendImageForOCR(_ image: UIImage) {
-    
+    guard let imageData = image.jpegData(compressionQuality: 1) else { return }
+    let scanUUID = UUID()
+    let recievedScan = RecivedScan(uuid: scanUUID, scanText: nil, scanDate: Date())
+    let sendingScan = SendingScan(format: "jpg", image: imageData, uuid: scanUUID)
+    scannerManager.scan(sendingScan)
   }
 }
 
@@ -108,7 +112,6 @@ extension ScansViewController: PHPickerViewControllerDelegate {
         print(error)
         return
       }
-
       guard let image = reading as? UIImage else {
         print("reading casting failed")
         return

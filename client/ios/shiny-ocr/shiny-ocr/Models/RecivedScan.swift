@@ -9,8 +9,8 @@ import Foundation
 
 struct RecivedScan: Decodable {
   let uuid: UUID
-  let scanText: String
-  let scanDate: Date
+  let scanText: String?
+  let scanDate: Date? // self generic 
 }
 
 extension RecivedScan {

@@ -10,5 +10,5 @@ import Foundation
 struct SendingScan: Encodable {
   let format: String // jpg / png
   let image: Data
-  let userId: UUID
+  let uuid: UUID
 }
