@@ -8,6 +8,7 @@
 import Photos
 import PhotosUI
 import UIKit
+import SPIndicator
 
 class ScansViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
@@ -25,13 +26,27 @@ class ScansViewController: UIViewController {
       ScanTableViewCell.instanceFromNib(),
       forCellReuseIdentifier: ScanTableViewCell.id
     )
-    addScanButton.isEnabled = false
     scannerManager.delegate = self
     scannerManager.connectToTesseractServer()
   }
 
   @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-    showImageSelectionAlert()
+    if scannerManager.isConnected {
+      showImageSelectionAlert()
+    } else {
+      addScanButton.isEnabled = false
+      SPIndicator.present(
+        title: "Error",
+        message: "Not connected to server",
+        preset: .error,
+        haptic: .error,
+        from: .top,
+        completion: { [weak self] in
+          guard let self else { return }
+          self.addScanButton.isEnabled = true
+        }
+      )
+    }
   }
 
   private func showImageSelectionAlert() {
@@ -129,13 +144,5 @@ extension ScansViewController: PHPickerViewControllerDelegate {
 extension ScansViewController: ScannerManagerDelegate {
   func scannerManager(_ manager: ScannerManager, didReceiveScan: RecivedScan) {
     
-  }
-
-  func lockScanActions() {
-    addScanButton.isEnabled = false
-  }
-
-  func unlockScanActions() {
-    addScanButton.isEnabled = true
   }
 }
