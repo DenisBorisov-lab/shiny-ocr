@@ -215,3 +215,4 @@ xcuserdata/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,windows,xcode,macos,visualstudiocode
+Pods
