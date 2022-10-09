@@ -19,9 +19,8 @@
 		F97A29E028D999D300AF4D9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F97A29DF28D999D300AF4D9E /* Assets.xcassets */; };
 		F97A29E328D999D300AF4D9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F97A29E128D999D300AF4D9E /* LaunchScreen.storyboard */; };
 		F9F298D728E9EB5200B9AD54 /* SendingScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F298D628E9EB5200B9AD54 /* SendingScan.swift */; };
-		F9FA717228F1DA2F0011384B /* WebSocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FA717028F1DA2F0011384B /* WebSocketDelegate.swift */; };
-		F9FA717328F1DA2F0011384B /* NativeWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FA717128F1DA2F0011384B /* NativeWebSocket.swift */; };
 		F9FA717628F1DB060011384B /* ScannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FA717528F1DB060011384B /* ScannerManager.swift */; };
+		F9FBCF9E28F37EAB00AF8BF0 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBCF9D28F37EAB00AF8BF0 /* Socket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +40,8 @@
 		F97A29E228D999D300AF4D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F97A29E428D999D300AF4D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9F298D628E9EB5200B9AD54 /* SendingScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingScan.swift; sourceTree = "<group>"; };
-		F9FA717028F1DA2F0011384B /* WebSocketDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketDelegate.swift; sourceTree = "<group>"; };
-		F9FA717128F1DA2F0011384B /* NativeWebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeWebSocket.swift; sourceTree = "<group>"; };
 		F9FA717528F1DB060011384B /* ScannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerManager.swift; sourceTree = "<group>"; };
+		F9FBCF9D28F37EAB00AF8BF0 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 				BBC724D35F46648152A2C142 /* Pods-shiny-ocr.debug.xcconfig */,
 				476CDB02AEF1259F5A8E87D0 /* Pods-shiny-ocr.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,7 +151,7 @@
 				F9FA717428F1DAF80011384B /* Managers  */,
 				F933FC3528D9B177007273A9 /* ViewControllers */,
 				F933FC3828D9C3EB007273A9 /* Views */,
-				F9FA716F28F1D9BB0011384B /* WebSockets */,
+				F9FA716F28F1D9BB0011384B /* Socket.io */,
 				F933FC3F28D9CB21007273A9 /* Models */,
 				F933FC3228D9B165007273A9 /* Storyboards */,
 				F933FC3428D9B172007273A9 /* Application */,
@@ -163,13 +160,12 @@
 			path = "shiny-ocr";
 			sourceTree = "<group>";
 		};
-		F9FA716F28F1D9BB0011384B /* WebSockets */ = {
+		F9FA716F28F1D9BB0011384B /* Socket.io */ = {
 			isa = PBXGroup;
 			children = (
-				F9FA717128F1DA2F0011384B /* NativeWebSocket.swift */,
-				F9FA717028F1DA2F0011384B /* WebSocketDelegate.swift */,
+				F9FBCF9D28F37EAB00AF8BF0 /* Socket.swift */,
 			);
-			path = WebSockets;
+			path = Socket.io;
 			sourceTree = "<group>";
 		};
 		F9FA717428F1DAF80011384B /* Managers  */ = {
@@ -300,9 +296,8 @@
 				F933FC4128D9CB30007273A9 /* RecivedScan.swift in Sources */,
 				F97A29D728D999D200AF4D9E /* AppDelegate.swift in Sources */,
 				F933FC3B28D9C40C007273A9 /* ScanTableViewCell.swift in Sources */,
-				F9FA717228F1DA2F0011384B /* WebSocketDelegate.swift in Sources */,
 				F933FC3728D9B1AC007273A9 /* ProfileViewController.swift in Sources */,
-				F9FA717328F1DA2F0011384B /* NativeWebSocket.swift in Sources */,
+				F9FBCF9E28F37EAB00AF8BF0 /* Socket.swift in Sources */,
 				F9F298D728E9EB5200B9AD54 /* SendingScan.swift in Sources */,
 				F9FA717628F1DB060011384B /* ScannerManager.swift in Sources */,
 				F97A29D928D999D200AF4D9E /* SceneDelegate.swift in Sources */,
