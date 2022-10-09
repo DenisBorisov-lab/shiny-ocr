@@ -1,6 +1,8 @@
 package com.example.tesseract.models;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.UUID;
 

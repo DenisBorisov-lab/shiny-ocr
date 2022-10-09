@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class SocketService {
     private final ScanService scanService;
     public void sendText(String eventName, SocketIOClient client, Scan object){
-//        OutputScan output = new OutputScan();
-//        output.setUuid(object.getUserId());
-//        output.setText(
-//                scanService.scan(object)
-//        );
-        client.sendEvent(eventName, "Google");
+        OutputScan output = new OutputScan();
+        output.setUuid(object.getUserId());
+        output.setText(
+                scanService.scan(object)
+        );
+        client.sendEvent(eventName, output);
     }
 }
