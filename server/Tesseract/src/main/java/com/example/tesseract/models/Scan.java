@@ -1,13 +1,13 @@
 package com.example.tesseract.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.util.UUID;
 
-@Getter
-@AllArgsConstructor
+@Data
+@NoArgsConstructor
 public class Scan {
     @NonNull
     private String format;
