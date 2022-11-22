@@ -19,7 +19,7 @@ public class ConverterService {
         ByteArrayInputStream inStreambj = new ByteArrayInputStream(sequence);
         BufferedImage newImage = ImageIO.read(inStreambj);
         UUID randomUUID = UUID.randomUUID();
-        String path = String.format("/src/main/resources/%s.$s", randomUUID, type);
+        String path = String.format("./data/%s.%s", randomUUID, type);
         ImageIO.write(newImage, type, new File(path));
         return new File(path);
     }

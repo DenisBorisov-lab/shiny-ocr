@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Service
 public class ScanService {
@@ -26,6 +28,13 @@ public class ScanService {
         tesseract.setLanguage("eng+rus+jpn+ita+deu+chi_sim+chi_tra+fra");
         tesseract.setPageSegMode(1);
         tesseract.setOcrEngineMode(1);
-        return tesseract.doOCR(image);
+        String s = tesseract.doOCR(image);
+        try{
+            Files.delete(Paths.get(image.getPath()));
+        }catch(Exception ex){
+            System.out.println("Неудалось удалить файл!");
+        }
+
+        return s;
     }
 }
